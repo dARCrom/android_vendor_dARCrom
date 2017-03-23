@@ -24,28 +24,28 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Backup Tool
 PRODUCT_COPY_FILES += \
-    vendor/du/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
-    vendor/du/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
-    vendor/du/prebuilt/common/bin/50-base.sh:system/addon.d/50-base.sh \
+    vendor/dARCrom/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
+    vendor/dARCrom/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
+    vendor/dARCrom/prebuilt/common/bin/50-base.sh:system/addon.d/50-base.sh \
 
 # Backup Services whitelist
 PRODUCT_COPY_FILES += \
-    vendor/du/config/permissions/backup.xml:system/etc/sysconfig/backup.xml
+    vendor/dARCrom/config/permissions/backup.xml:system/etc/sysconfig/backup.xml
 
 # Init file
 PRODUCT_COPY_FILES += \
-    vendor/du/prebuilt/common/etc/init.local.rc:root/init.du.rc
+    vendor/dARCrom/prebuilt/common/etc/init.local.rc:root/init.du.rc
 
 # Copy LatinIME for gesture typing
 PRODUCT_COPY_FILES += \
-    vendor/du/prebuilt/common/lib/libjni_latinime.so:system/lib/libjni_latinime.so \
-    vendor/du/prebuilt/common/lib/libjni_latinimegoogle.so:system/lib/libjni_latinimegoogle.so \
-    vendor/du/prebuilt/common/lib64/libjni_latinime.so:system/lib64/libjni_latinime.so \
-    vendor/du/prebuilt/common/lib64/libjni_latinimegoogle.so:system/lib64/libjni_latinimegoogle.so
+    vendor/dARCrom/prebuilt/common/lib/libjni_latinime.so:system/lib/libjni_latinime.so \
+    vendor/dARCrom/prebuilt/common/lib/libjni_latinimegoogle.so:system/lib/libjni_latinimegoogle.so \
+    vendor/dARCrom/prebuilt/common/lib64/libjni_latinime.so:system/lib64/libjni_latinime.so \
+    vendor/dARCrom/prebuilt/common/lib64/libjni_latinimegoogle.so:system/lib64/libjni_latinimegoogle.so
 
 # SELinux filesystem labels
 PRODUCT_COPY_FILES += \
-    vendor/du/prebuilt/common/etc/init.d/50selinuxrelabel:system/etc/init.d/50selinuxrelabel
+    vendor/dARCrom/prebuilt/common/etc/init.d/50selinuxrelabel:system/etc/init.d/50selinuxrelabel
 
 # Enable SIP+VoIP on all targets
 PRODUCT_COPY_FILES += \
@@ -53,12 +53,12 @@ PRODUCT_COPY_FILES += \
 
 # Don't export PS1 in /system/etc/mkshrc.
 PRODUCT_COPY_FILES += \
-    vendor/du/prebuilt/common/etc/mkshrc:system/etc/mkshrc \
+    vendor/dARCrom/prebuilt/common/etc/mkshrc:system/etc/mkshrc \
 
 PRODUCT_COPY_FILES += \
-    vendor/du/prebuilt/common/etc/init.d/00banner:system/etc/init.d/00banner \
-    vendor/du/prebuilt/common/etc/init.d/90userinit:system/etc/init.d/90userinit \
-    vendor/du/prebuilt/common/bin/sysinit:system/bin/sysinit
+    vendor/dARCrom/prebuilt/common/etc/init.d/00banner:system/etc/init.d/00banner \
+    vendor/dARCrom/prebuilt/common/etc/init.d/90userinit:system/etc/init.d/90userinit \
+    vendor/dARCrom/prebuilt/common/bin/sysinit:system/bin/sysinit
 
 # Stagefright FFMPEG plugin
 ifneq ($(BOARD_USES_QCOM_HARDWARE),true)
@@ -77,17 +77,17 @@ PRODUCT_BOOT_JARS += \
     org.dirtyunicorns.utils
 
 # Packages
-include vendor/du/config/packages.mk
+include vendor/dARCrom/config/packages.mk
 
-PRODUCT_PACKAGE_OVERLAYS += vendor/du/overlay/common
+PRODUCT_PACKAGE_OVERLAYS += vendor/dARCrom/overlay/common
 
 # use specific resolution for bootanimation
 ifneq ($(SMALL_BOOTANIMATION_SIZE),)
 PRODUCT_COPY_FILES += \
-    vendor/du/prebuilt/common/media/res/$(SMALL_BOOTANIMATION_SIZE).zip:system/media/bootanimation.zip
+    vendor/dARCrom/prebuilt/common/media/res/$(SMALL_BOOTANIMATION_SIZE).zip:system/media/bootanimation.zip
 else
 PRODUCT_COPY_FILES += \
-    vendor/du/prebuilt/common/media/bootanimation.zip:system/media/bootanimation.zip
+    vendor/dARCrom/prebuilt/common/media/bootanimation.zip:system/media/bootanimation.zip
 endif
 
 # Versioning System
@@ -124,8 +124,8 @@ endif
 -include vendor/extra/product.mk
 
 # Set all versions
-DU_VERSION := DU_$(DU_BUILD)_$(ANDROID_VERSION)_$(shell date -u +%Y%m%d-%H%M).$(DU_VERSION)-$(DU_BUILD_TYPE)
-DU_MOD_VERSION := DU_$(DU_BUILD)_$(ANDROID_VERSION)_$(shell date -u +%Y%m%d-%H%M).$(DU_VERSION)-$(DU_BUILD_TYPE)
+DU_VERSION := dARCrom_$(DU_BUILD)_$(ANDROID_VERSION)_$(shell date -u +%Y%m%d-%H%M).$(DU_VERSION)-$(DU_BUILD_TYPE)
+DU_MOD_VERSION := dARCrom_$(DU_BUILD)_$(ANDROID_VERSION)_$(shell date -u +%Y%m%d-%H%M).$(DU_VERSION)-$(DU_BUILD_TYPE)
 
 PRODUCT_PROPERTY_OVERRIDES += \
     BUILD_DISPLAY_ID=$(BUILD_ID) \
